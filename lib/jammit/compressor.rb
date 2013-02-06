@@ -193,7 +193,6 @@ module Jammit
       public_path = absolute_path(asset_path, css_path)
       return "__EMBED__#{public_path}" if embeddable?(public_path, variant)
       source = asset_path.absolute? || ! Jammit.rewrite_relative_paths ? asset_path.to_s : relative_path(public_path)
-      puts "@cache_bust_css: #{Jammit.cache_bust_css}"
       if (Jammit.cache_bust_css)
         return rewrite_asset_path(source, public_path)
       else
