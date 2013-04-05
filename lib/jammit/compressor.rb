@@ -115,7 +115,7 @@ module Jammit
         contents  = read_binary_file(path)
         contents  = contents.gsub(/\r?\n/, "\\n").gsub("'", '\\\\\'')
         name      = template_name(path, base_path)
-        "#{namespace}['#{name}'] = #{Jammit.template_function}('#{contents}');"
+        "#{namespace}['#{name}'] = #{Jammit.template_function}('#{contents}', '#{name}');"
       end
       compiler = Jammit.include_jst_script ? read_binary_file(DEFAULT_JST_SCRIPT) : '';
       setup_namespace = "#{namespace} = #{namespace} || {};"
